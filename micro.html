@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- jQuery library -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+        
+        <title>Chainsys</title>
+        </head>
+<body>
+    <div id="home">
+        <div class="header hidden-sm hidden-md hidden-xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="left_header">
+                            <ul>
+                                <li>Welcome to Professional Consulting Agency</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+62896706255135">+62-896-7062-55135</a></li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:example@gmail.com">example@gmail.com</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                            <div class="right_header">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <div class="main_menu" id="myHeader">
+            <nav class="navbar navbar-default ">
+            
+            
+            
+              <div class="container">
+                <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                      </button>
+          
+                      <a href="chainsys.html"><img src="chainsys.jpeg"></a>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="myNavbar">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="chainsys.html">HOME</a></li>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">OUR SERVICES</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                      </ul>
+                </div>
+              </div>
+        </nav>
+    </div>
+    <div id="booking">
+        <div class="booking_section">
+            <div class="row">
+                <div class="col-lg-3">
+                </div>
+                <div class="col-lg-6">
+                        <div class="gst">
+                        <form onsubmit="gstCalculation()">
+                                <h1>Booking</h1>
+                                <label>DOB</label>
+                                        <input type="date" id="date"><br>
+
+                                    <label>Booking time</label>
+                                        <input type="time" id="booking_time"><br>
+                                        <label for="senior citizen"> senior citizen</label>
+                                        <input type="checkbox" name="senior citizen" id="senior_citizen" value="y"><br>
+                                        <label>Gender</label>
+                                        <input type="radio" id="male" name="gender" id="gender" value="male">
+                                          <label for="male">Male</label>
+                                          <input type="radio" id="female" name="gender" id="gender" value="female">
+                                          <label for="female">Female</label><br>
+                                          <lable for="kilo">Kilometers</lable>
+                                            <input type="number" id="kilometer">
+                                              <h4>Instructions</h4>
+                                              <ul>
+                                                  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                                  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                              </ul>
+                                              <ol>
+                                                  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                                  <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+                                              </ol>
+                                    <button>Submit</button>
+                                </form>
+                                </div>
+                                
+                                <div class="print_section">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <p>Total Price without gst : <span id="fare"></span> </p> 
+                                            <p id="age"></p>
+                                            <p>Total Price with gst : <span id="fareWithGst"></span> </p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                        </div>
+                                    </div>
+                                </div> 
+
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+        function gstCalculation() {
+            event.preventDefault();
+            let price=0;
+            let priceWithGst=0;
+            let kilometer=document.getElementById("#kilometer").value;
+            //alert("kilometer "+kilometer )
+            price=kilometer*10;
+            document.getElementById("#fare").innerHTML=price;
+            priceWithGst=price+(price*7.0)/100;
+            document.getElementById("#fareWithGst").innerHTML=priceWithGst;
+            //alert("price with gst "+ priceWithGst);
+            
+            let dateOfBirthStr = document.querySelector("#date").value;
+            let dateOfBirth = new Date(dateOfBirthStr);
+            let year = dateOfBirth.getFullYear();
+            //alert("year" + year);
+            let a=new Date();
+            var currentYear = a.getUTCFullYear();
+            //alert("currentYear "+currentYear);
+            let age=currentYear-year;
+            //alert("age "+age);
+            let total=0;
+            if(age>=50){
+                document.getElementById("#age").innerHTML="You are senior citzen eligible for 50% offer";
+                total=priceWithGst/2;
+                document.getElementById("#fareWithGst").innerHTML=total;
+
+            }
+            else{
+                document.getElementById("#age").innerHTML="You are not senior citizen";
+            }
+        }
+        
+        </script>
+
+</html>
+
